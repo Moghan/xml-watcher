@@ -36,7 +36,8 @@ function App() {
       const text = (e.target && e.target.result as string)
       let items = [];
       if(text !== null) {
-        const rows = text.split("\n")
+        var csv = text.replace(/[;]/gi, ',')
+        const rows = csv.split("\n")
         const rowsWithoutHeaders = rows.slice(1)
         for(const item of rowsWithoutHeaders) {
           const itemArr = item.split(",")
